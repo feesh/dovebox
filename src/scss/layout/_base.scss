@@ -1,0 +1,46 @@
+// Base styles for HTML elements
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $cabin;
+  margin: 0;
+  padding: 0;
+  color: $copy-light;
+  background: $bg-right; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, $bg-right , $bg-left); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, $bg-right , $bg-left); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+a {
+  text-decoration: none;
+}
+
+// For the emoji icons
+.bigmoji {
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  transition: $tx-all;
+  position: relative;
+  cursor: pointer;
+  filter: none;
+  -webkit-filter: grayscale(100%);
+  -moz-filter:    grayscale(100%);
+  -ms-filter:     grayscale(100%);
+  -o-filter:      grayscale(100%);
+
+  @media only screen and (min-width: $medium-screens)  {
+    font-size: 3.25rem;
+  }
+
+  &:hover {
+    filter: gray;
+    -webkit-filter: grayscale(0%);
+    -moz-filter:    grayscale(0%);
+    -ms-filter:     grayscale(0%);
+    -o-filter:      grayscale(0%);
+  }
+}
