@@ -1,29 +1,9 @@
 import React from 'react';
 
 class Search extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      initialDoves: ['dove1', 'dove2', 'dove3'],
-      filteredDoves: [],
-    };
-
-    console.log(this);
-  }
-
-  componentDidMount() {
-    this.setState({filteredDoves: this.state.initialDoves})
-  }
-
+  // Pass next panel selection to parent
   filterList(event) {
-    console.log(this);
-    var updatedList = this.state.initialDoves;
-    updatedList = updatedList.filter(function(item){
-      return item.toLowerCase().search(
-        event.target.value.toLowerCase()) !== -1;
-    });
-    this.setState({filteredDoves: updatedList});
+    this.props.filterList(event);
   }
 
   render() {
