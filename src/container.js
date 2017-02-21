@@ -9,11 +9,10 @@ export default class Container extends React.Component {
 
     this.state = {
       data: null,
-      selected_pic: null,
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const url = 'http://localhost:3000/doves';
 
     $.ajax({
