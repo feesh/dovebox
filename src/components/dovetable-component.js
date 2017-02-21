@@ -9,11 +9,13 @@ class DoveTable extends React.Component {
     if (!doves.length) return null;
 
     return (
-      <table className="doves">
+      <table className="dovetable">
         <thead>
           <tr>
             <td>Dove</td>
             <td>Last command</td>
+            <td>Images collected</td>
+            <td>Deorbit</td>
           </tr>
         </thead>
         <tbody>
@@ -25,18 +27,18 @@ class DoveTable extends React.Component {
 
   renderDove(key, dove) {
     return (
-      <tr key={key} id={key} style={{ backgroundColor: dove.color }}>
-        <td>{dove.id}</td>
+      <tr key={key} id={key}>
+        <td style={{ backgroundColor: dove.color }}>{dove.id}</td>
+        <td>{dove.images_collected}</td>
         <td>{dove.last_command}</td>
+        <td>{dove.deorbit_dt}</td>
       </tr>
     );
   }
 
   render() {
-    const { doves } = this.props;
-
     return (
-      <section className="content__dovetable">
+      <section>
         {this.renderDoveTable()}
       </section>
     );
