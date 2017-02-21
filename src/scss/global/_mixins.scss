@@ -1,0 +1,35 @@
+// Mixins
+
+// For setting breakpoints. Default is min-width up
+@mixin break-at($point, $breaktype: min-width) {
+  @media only screen and ($breaktype: $point)  {
+    @content;
+  }
+}
+
+
+/*  IE Hacks
+-------------------------------------------------------*/
+
+// Targets IE browsers IE8 and earlier using conditional comments
+// Note: only works as a nested style
+@mixin ie8-hack {
+  .ie7 &, .ie8 & {
+    @content;
+  }
+}
+
+// Targets IE browsers IE9 and earlier using conditional comments
+// Note: only works as a nested style
+@mixin ie9-hack {
+  .ie7 &, .ie8 &, .ie9 & {
+    @content;
+  }
+}
+
+// Targets only IE10 using this hack https://gist.github.com/atk/4025104
+@mixin ie10-hack {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
