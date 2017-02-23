@@ -1,8 +1,10 @@
 import 'whatwg-fetch';
 import React from 'react';
 
-import DoveTable from './components/dovetable-component.js';
+import DoveTableContainer from './components/dovetable-container.js';
 import Header from './components/header-section.js';
+
+import store from './store';
 
 /*  Dove viewer app */
 class App extends React.Component {
@@ -13,8 +15,6 @@ class App extends React.Component {
       initialDoves: ['dove1', 'dove2', 'dove3'],
       filteredDoves: [],
     };
-
-    console.log(this);
   }
 
   componentDidMount() {
@@ -22,7 +22,6 @@ class App extends React.Component {
   }
 
   filterList(event) {
-    console.log(this);
     var updatedList = this.state.initialDoves;
     updatedList = updatedList.filter(function(item){
       return item.toLowerCase().search(
@@ -42,7 +41,7 @@ class App extends React.Component {
         />
         <section className="gallery">
           <div className="content">
-            <DoveTable doves={doves} />
+            <DoveTableContainer doves={doves} />
           </div>
         </section>
       </div>

@@ -1,9 +1,15 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from './actions/index';
+import { connect } from 'react-redux';
 
 import App from './app';
+import store from './store';
+import { setupList } from './actions/index';
+
 
 /*  Container for bringing in the data */
-export default class Container extends React.Component {
+class Container extends React.Component {
   constructor() {
     super();
 
@@ -12,7 +18,31 @@ export default class Container extends React.Component {
     };
   }
 
+  getInitialState() {
+    return { data: null };
+  }
+
   componentWillMount() {
+    this.loadDoves();
+  }
+
+  componentDidMount() {
+  }
+
+  render() {
+
+    const { doves } = this.props;
+
+    console.log(store.getState());
+
+    // if (!doves) return <div>Fancy loading gif here...</div>;
+
+    return (
+      <App doves={doves} />
+    );
+  }
+
+  loadDoves() {
     const url = 'http://localhost:3000/doves';
 
     $.ajax({
@@ -21,27 +51,24 @@ export default class Container extends React.Component {
       type: 'GET',
       data: {},
       success: function(data) {
-        console.log(data);
+        // console.log(data);
 
+        // Set store with new doves
+        store.dispatch(setupList(data));
+        console.log(store.getState());
+
+        // Render App
         this.setState({
           data: data,
         });
+
       }.bind(this),
       error: function(data) {
         console.log(data);
       }
     })
   }
-
-  render() {
-    const { data } = this.state;
-
-    if (!data) return <div>Fancy loading gif here...</div>;
-
-    return (
-      <main>
-        <App doves={data} />
-      </main>
-    );
-  }
 }
+
+
+export default Container;
