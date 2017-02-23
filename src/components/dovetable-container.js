@@ -17,7 +17,7 @@ class DoveTableContainer extends React.Component {
     if (!doves) return <div>Fancy loading gif here...</div>;
 
     // If the filter is active, populate table with filtered list
-    if (this.props.doves.filteredDoves.length) {
+    if (this.props.doves.filter) {
       return (
         <DoveTable
           doveList={this.props.doves.filteredDoves}

@@ -6,6 +6,7 @@ const doves = (state = {}, action) => {
       // Initialize list with flock of doves
       return {
         doves: action.doves,
+        filter: '',
         filteredDoves: []
       }
     case 'FILTER_LIST':
@@ -20,13 +21,12 @@ const doves = (state = {}, action) => {
         for (const key of Object.keys(dove)) {
             const val = dove[key];
             if (typeof val === 'string') {
-              console.log(val);
               if (val.toLowerCase().search(action.filter.toLowerCase()) !== -1) {
                 return true;
               };
             } else if (typeof val === 'number')  {
-              const num = val.toString();
-              if (num.toLowerCase().search(action.filter.toLowerCase()) !== -1) {
+              const num = val.toString().toLowerCase();
+              if (num.search(action.filter.toLowerCase()) !== -1) {
                 return true;
               };
             }
@@ -36,6 +36,7 @@ const doves = (state = {}, action) => {
       // Return filtered list of matching doves
       return {
         ...state,
+        filter: action.filter,
         filteredDoves: filteredDoves
       }
 
