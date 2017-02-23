@@ -4,14 +4,15 @@ import * as actionCreators from './actions/index';
 import Main from './Main';
 
 function mapStateToProps(state) {
-  console.log('mapstatetoprops');
-  console.log(state.doves);
   return {
     doves: state.doves
   }
 }
 
 function mapDispachToProps(dispatch) {
+  console.log('axncrtrs');
+  console.log(actionCreators);
+
   return bindActionCreators(actionCreators, dispatch);
 }
 

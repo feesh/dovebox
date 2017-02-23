@@ -12,11 +12,13 @@ const doves = (state = {}, action) => {
       // Create a new object with new dove data
       // Add new dove to list
       // Return list
+      console.log('add a dove!');
 
     case 'DELETE_DOVE':
       // Check which dove to delete
       // Slice list before and after that dove
       // Return doves
+      console.log('delete a dove!');
 
     default:
       return state

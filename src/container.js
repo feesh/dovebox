@@ -33,13 +33,13 @@ class Container extends React.Component {
 
     const { doves } = this.props;
 
-    console.log('get state in container');
-    console.log(store.getState());
+    // console.log('get state in container');
+    // console.log(store.getState());
 
     // if (!doves) return <div>Fancy loading gif here...</div>;
 
     return (
-      <App doves={doves} />
+      <App doves={doves} {...this.props} />
     );
   }
 
@@ -56,7 +56,6 @@ class Container extends React.Component {
 
         // Set store with new doves
         store.dispatch(setupList(data));
-        console.log(store.getState());
 
         // Render App
         this.setState({
