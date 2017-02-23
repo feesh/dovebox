@@ -4,6 +4,7 @@ const doves = (state = {}, action) => {
   switch (action.type) {
     case 'SETUP_LIST':
       // Initialize list with flock of doves
+      console.log('setting up list!');
       return {
         doves: action.doves
       }

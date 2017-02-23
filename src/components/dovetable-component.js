@@ -7,7 +7,9 @@ class DoveTable extends React.Component {
   }
 
   renderDoveTable() {
-    const { doves } = this.props;
+    const { doves } = this.props.doves;
+    console.log('set up table');
+    console.log(doves);
     const dovelist = doves.map((dove, i) => this.renderDove(i, dove));
 
     // If there are no doves, don't render a list

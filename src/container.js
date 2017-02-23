@@ -33,6 +33,7 @@ class Container extends React.Component {
 
     const { doves } = this.props;
 
+    console.log('get state in container');
     console.log(store.getState());
 
     // if (!doves) return <div>Fancy loading gif here...</div>;

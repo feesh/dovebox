@@ -5,9 +5,9 @@ import doves from './data/doves';
 
 import rootReducer from './reducers/index';
 
-console.log('where my doves');
-console.log(doves);
+
 // create an object for the default data
+// Swap this to pull from API later
 const defaultState = {
   doves
 };
