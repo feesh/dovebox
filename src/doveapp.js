@@ -5,7 +5,8 @@ import Main from './Main';
 
 function mapStateToProps(state) {
   return {
-    doves: state.doves
+    doves: state.doves,
+    filteredDoves: state.filteredDoves
   }
 }
 

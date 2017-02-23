@@ -178,7 +178,8 @@ const doves = {
       "last_command": "Engage thrusters",
       "deorbit_dt": "2011-01-20T12:44:03Z"
     }
-  ]
+  ],
+  filteredDoves: []
 }
 
 export default doves;

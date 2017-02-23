@@ -16,12 +16,22 @@ class DoveTableContainer extends React.Component {
 
     if (!doves) return <div>Fancy loading gif here...</div>;
 
-    return (
-      <DoveTable
-        doves={doves}
-        {...this.props}
-      />
-    );
+    // If the filter is active, populate table with filtered list
+    if (this.props.doves.filteredDoves.length) {
+      return (
+        <DoveTable
+          doveList={this.props.doves.filteredDoves}
+          {...this.props}
+        />
+      );
+    } else { // Otherwise show full dove list
+      return (
+        <DoveTable
+          doveList={this.props.doves.doves}
+          {...this.props}
+        />
+      );
+    }
   }
 }
 

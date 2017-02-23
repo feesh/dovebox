@@ -5,13 +5,26 @@ const doves = (state = {}, action) => {
     case 'SETUP_LIST':
       // Initialize list with flock of doves
       return {
-        doves: action.doves
+        doves: action.doves,
+        filteredDoves: []
       }
     case 'FILTER_LIST':
       // Initialize list with flock of doves
       console.log('filter list!');
-      console.log(action.filter);
-      return state;
+      var filteredDoves = state.doves;
+
+      // Set up new list with doves that match
+      filteredDoves = filteredDoves.filter(function(dove) {
+        return dove.id.toLowerCase().search(
+          action.filter.toLowerCase()) !== -1;
+      });
+
+      console.log(filteredDoves);
+      // Return filtered list of matching doves
+      return {
+        ...state,
+        filteredDoves: filteredDoves
+      }
 
     case 'ADD_DOVE':
       // Create a new object with new dove data

@@ -1,13 +1,8 @@
 import React from 'react';
 
 class DoveTable extends React.Component {
-
-  onDeleteClick(id) {
-    this.props.deleteDove(id);
-  }
-
   renderDoveTable() {
-    const { doves } = this.props.doves;
+    const doves = this.props.doveList;
     const dovelist = doves.map((dove, i) => this.renderDove(i, dove));
 
     // If there are no doves, don't render a list
@@ -38,7 +33,7 @@ class DoveTable extends React.Component {
         <td>{dove.images_collected}</td>
         <td>{dove.last_command}</td>
         <td>{dove.deorbit_dt}</td>
-        <td><button onClick={() => this.onDeleteClick(dove.id)}>Delete</button></td>
+        <td><button onClick={() => this.props.deleteDove(dove.id)}>Delete</button></td>
       </tr>
     );
   }
