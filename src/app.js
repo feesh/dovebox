@@ -38,10 +38,11 @@ class App extends React.Component {
         <Header
           doves={doves}
           filterList={(event) => this.filterList(event)}
+          {...this.props}
         />
         <section className="gallery">
           <div className="content">
-            <DoveTableContainer doves={doves} />
+            <DoveTableContainer doves={doves} {...this.props} />
           </div>
         </section>
       </div>
