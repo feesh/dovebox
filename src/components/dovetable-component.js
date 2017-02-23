@@ -5,24 +5,13 @@ class DoveTable extends React.Component {
     const doves = this.props.doveList;
     const dovelist = doves.map((dove, i) => this.renderDove(i, dove));
 
-    // If there are no doves, don't render a list
-    if (!doves.length) return null;
+    // If there are no doves, render nothing
+    if (!dovelist.length) return null;
 
     return (
-      <table className="dovetable">
-        <thead>
-          <tr>
-            <td>Dove</td>
-            <td>Last command</td>
-            <td>Images collected</td>
-            <td>Deorbit</td>
-            <td>Action</td>
-          </tr>
-        </thead>
-        <tbody>
-          {dovelist}
-        </tbody>
-      </table>
+      <tbody>
+        {dovelist}
+      </tbody>
     );
   }
 
@@ -41,7 +30,18 @@ class DoveTable extends React.Component {
   render() {
     return (
       <section>
-        {this.renderDoveTable()}
+        <table className="dovetable">
+          <thead>
+            <tr>
+              <td>Dove</td>
+              <td>Last command</td>
+              <td>Images collected</td>
+              <td>Deorbit</td>
+              <td>Action</td>
+            </tr>
+          </thead>
+          {this.renderDoveTable()}
+        </table>
       </section>
     );
   }
