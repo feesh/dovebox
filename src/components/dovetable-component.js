@@ -22,7 +22,7 @@ class DoveTable extends React.Component {
         <td>{dove.images_collected}</td>
         <td>{dove.last_command}</td>
         <td>{dove.deorbit_dt}</td>
-        <td><button onClick={() => this.props.deleteDove(dove.id)}>Delete</button></td>
+        <td><button className="btn" onClick={() => this.props.deleteDove(dove.id)}>Delete</button></td>
       </tr>
     );
   }
