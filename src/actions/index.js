@@ -6,3 +6,11 @@ export const setupList = (doves) => {
     doves
   }
 }
+
+// delete dove
+export function deleteDove(id) {
+  return {
+    type: 'DELETE_DOVE',
+    id
+  }
+}
