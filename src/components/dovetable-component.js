@@ -3,7 +3,7 @@ import React from 'react';
 class DoveTable extends React.Component {
 
   onDeleteClick(id) {
-    this.props.onDeleteClick(id);
+    this.props.deleteDove(id);
   }
 
   renderDoveTable() {

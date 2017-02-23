@@ -7,6 +7,14 @@ export const setupList = (doves) => {
   }
 }
 
+// Filter list
+export const filterList = (filter) => {
+  return {
+    type: 'FILTER_LIST',
+    filter
+  }
+}
+
 // delete dove
 export function deleteDove(id) {
   return {

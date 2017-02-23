@@ -37,7 +37,6 @@ class App extends React.Component {
       <div className="page_wrapper">
         <Header
           doves={doves}
-          filterList={(event) => this.filterList(event)}
           {...this.props}
         />
         <section className="gallery">

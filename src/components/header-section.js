@@ -3,10 +3,6 @@ import React from 'react';
 import Search from './search-section.js';
 
 class Header extends React.Component {
-  filterList(event) {
-    this.props.filterList(event);
-  }
-
   render() {
     const { doves } = this.props;
 
@@ -18,7 +14,7 @@ class Header extends React.Component {
           </div>
           <Search
             doves={doves}
-            filterList={(event) => this.filterList(event)}
+            {...this.props}
           />
         </div>
       </header>

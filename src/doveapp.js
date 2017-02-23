@@ -10,9 +10,6 @@ function mapStateToProps(state) {
 }
 
 function mapDispachToProps(dispatch) {
-  console.log('axncrtrs');
-  console.log(actionCreators);
-
   return bindActionCreators(actionCreators, dispatch);
 }
 

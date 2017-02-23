@@ -11,12 +11,6 @@ class DoveTableContainer extends React.Component {
     };
   }
 
-  onDeleteClick(id) {
-    console.log(id);
-    console.log(this.props);
-    this.props.deleteDove(id);
-  }
-
   render() {
     const { doves } = this.props;
 
@@ -25,7 +19,7 @@ class DoveTableContainer extends React.Component {
     return (
       <DoveTable
         doves={doves}
-        onDeleteClick={(id) => this.onDeleteClick(id)}
+        {...this.props}
       />
     );
   }
