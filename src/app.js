@@ -8,37 +8,12 @@ import store from './store';
 
 /*  Dove viewer app */
 class App extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      initialDoves: ['dove1', 'dove2', 'dove3'],
-      filteredDoves: [],
-    };
-  }
-
-  componentDidMount() {
-    this.setState({filteredDoves: this.state.initialDoves})
-  }
-
-  filterList(event) {
-    var updatedList = this.state.initialDoves;
-    updatedList = updatedList.filter(function(item){
-      return item.toLowerCase().search(
-        event.target.value.toLowerCase()) !== -1;
-    });
-    this.setState({filteredDoves: updatedList});
-  }
-
   render() {
     const { doves } = this.props;
 
     return (
       <div className="page_wrapper">
-        <Header
-          doves={doves}
-          {...this.props}
-        />
+        <Header doves={doves} {...this.props} />
         <section className="gallery">
           <div className="content">
             <DoveTableContainer doves={doves} {...this.props} />

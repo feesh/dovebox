@@ -10,16 +10,29 @@ const doves = (state = {}, action) => {
       }
     case 'FILTER_LIST':
       // Initialize list with flock of doves
-      console.log('filter list!');
       var filteredDoves = state.doves;
 
       // Set up new list with doves that match
       filteredDoves = filteredDoves.filter(function(dove) {
-        return dove.id.toLowerCase().search(
-          action.filter.toLowerCase()) !== -1;
+        // return dove.values.toLowerCase().search(
+        //   action.filter.toLowerCase()) !== -1;
+
+        for (const key of Object.keys(dove)) {
+            const val = dove[key];
+            if (typeof val === 'string') {
+              console.log(val);
+              if (val.toLowerCase().search(action.filter.toLowerCase()) !== -1) {
+                return true;
+              };
+            } else if (typeof val === 'number')  {
+              const num = val.toString();
+              if (num.toLowerCase().search(action.filter.toLowerCase()) !== -1) {
+                return true;
+              };
+            }
+        }
       });
 
-      console.log(filteredDoves);
       // Return filtered list of matching doves
       return {
         ...state,
