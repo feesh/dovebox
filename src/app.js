@@ -3,6 +3,7 @@ import React from 'react';
 
 import DoveTableContainer from './components/dovetable-container.js';
 import Header from './components/header-section.js';
+import AddPanel from './components/addpanel-component.js';
 
 import store from './store';
 
@@ -16,6 +17,9 @@ class App extends React.Component {
         <Header doves={doves} {...this.props} />
         <section className="gallery">
           <div className="content">
+            {this.props.doves.addPanelIsVisible &&
+              <AddPanel doves={doves} {...this.props} />
+            }
             <DoveTableContainer doves={doves} {...this.props} />
           </div>
         </section>

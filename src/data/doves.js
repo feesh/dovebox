@@ -180,7 +180,8 @@ const doves = {
     }
   ],
   filter: '',
-  filteredDoves: []
+  filteredDoves: [],
+  addPanelIsVisible: false
 }
 
 export default doves;

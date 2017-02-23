@@ -7,8 +7,10 @@ const doves = (state = {}, action) => {
       return {
         doves: action.doves,
         filter: '',
-        filteredDoves: []
+        filteredDoves: [],
+        addPanelIsVisible: false
       }
+
     case 'FILTER_LIST':
       // Initialize list with flock of doves
       var filteredDoves = state.doves;
@@ -47,8 +49,14 @@ const doves = (state = {}, action) => {
       console.log('add a dove!');
       return state;
 
+    case 'TOGGLE_ADD_PANEL':
+      // Show or hide add new dove panel
+      return {
+        ...state,
+        addPanelIsVisible: !state.addPanelIsVisible
+      };
+
     case 'DELETE_DOVE':
-      console.log('delete a dove!');
       // Check which dove to delete
       let index = state.doves.map(function(x) {return x.id; }).indexOf(action.id);
 
@@ -57,6 +65,7 @@ const doves = (state = {}, action) => {
         ...state.doves.slice(0, index),
         ...state.doves.slice(index + 1)
       ];
+
       // Return doves
       return {
         ...state,
