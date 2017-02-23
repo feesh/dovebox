@@ -50,9 +50,18 @@ const doves = (state = {}, action) => {
     case 'DELETE_DOVE':
       console.log('delete a dove!');
       // Check which dove to delete
+      let index = state.doves.map(function(x) {return x.id; }).indexOf(action.id);
+
       // Slice list before and after that dove
+      let anotherOneBitesTheDust = [
+        ...state.doves.slice(0, index),
+        ...state.doves.slice(index + 1)
+      ];
       // Return doves
-      return state;
+      return {
+        ...state,
+        doves: anotherOneBitesTheDust
+      };
 
     default:
       return state
