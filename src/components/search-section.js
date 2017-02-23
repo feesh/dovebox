@@ -1,7 +1,7 @@
 import React from 'react';
 
 class Search extends React.Component {
-  // Pass next panel selection to parent
+  // Pass filter query to reducers
   filterList() {
     const searchtext = this.refs.searchbox.value;
     this.props.filterList(searchtext);
