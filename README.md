@@ -29,11 +29,10 @@ Although this was a fun project to start on, given the time constraints there ar
 - [ ] Documentation throughout the code.
 - [ ] Cross browser and mobile testing.
 - [ ] SVG doves set to the appropriate color.
-- [ ] Rainbow sort order for the dove list.
+- [ ] [Rainbow sort order](http://jsfiddle.net/shanfan/ojgp5718/) for the dove list.
 
 ### 🖥 Technologies used
 - Javascript (React, Redux)
 - Sass & PostCSS
 - Webpack
 - Babel
-- Tested across Chrome, Safari, Firefox, and IE
