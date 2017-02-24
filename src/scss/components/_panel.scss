@@ -29,7 +29,8 @@
       display: flex;
       flex-direction: column;
       align-self: center;
-      min-width: 600px;
+
+      @include break-at($medium-screens) { min-width: 600px; }
 
       & > div {
         display: flex;

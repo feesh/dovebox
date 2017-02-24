@@ -4,6 +4,7 @@
   position: fixed;
   z-index: map-get($zindex, modal);
   top: 10%;
-  right: 50%;
-  left: 44%;
+  left: 20%;
+
+  @include break-at($medium-screens) { left: 44%; }
 }
