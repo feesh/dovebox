@@ -16,10 +16,8 @@ class App extends React.Component {
       <div className="page_wrapper">
         <Header doves={doves} {...this.props} />
         <section className="gallery">
+          <AddPanel doves={doves} {...this.props} />
           <div className="content">
-            {this.props.doves.addPanelIsVisible &&
-              <AddPanel doves={doves} {...this.props} />
-            }
             <DoveTableContainer doves={doves} {...this.props} />
           </div>
         </section>
