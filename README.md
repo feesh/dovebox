@@ -1,9 +1,9 @@
 # 🐥📦 DoveBox
 A patrol dashboard using React, Redux, and Sass. This demo monitors a flock of Doves and interacts with the [test API here](https://github.com/spacedarcy/MCUITest).
 
-[View lightbox online. 👀](http://static.trishang.com/db/)
+[View DoveBox online. 👀](http://static.trishang.com/db/)
 
-![Screenshot of demo](http://static.trishang.com/db/screenshot-dovebox.png "Screenshot of lightbox demo")
+![Screenshot of demo](http://static.trishang.com/db/screenshot-dovebox.png "Screenshot of dovebox demo")
 
 ### 👉 Get started
 Testing this out locally? Start here to get set up:
