@@ -1,0 +1,9 @@
+// Color picker
+
+.sketch-picker {
+  position: fixed;
+  z-index: map-get($zindex, modal);
+  top: 10%;
+  right: 50%;
+  left: 44%;
+}
