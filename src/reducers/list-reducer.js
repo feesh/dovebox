@@ -42,12 +42,8 @@ const doves = (state = {}, action) => {
         filteredDoves: filteredDoves
       }
 
+    // Add new dove to list
     case 'ADD_DOVE':
-      // Create a new object with new dove data
-      // Add new dove to list
-      // Return list
-      console.log('add a dove!');
-      console.log(action);
 
       let deorbit_dt = new Date();
       let color;
@@ -65,7 +61,7 @@ const doves = (state = {}, action) => {
         color = randocolor;
       }
 
-
+      // Create a new object with new dove data
       const newDove = {
         id: action.id,
         active: action.active,
@@ -75,8 +71,10 @@ const doves = (state = {}, action) => {
         deorbit_dt: deorbit_dt.toISOString()
       };
 
+      // Return list
       return {
         ...state,
+        addPanelIsVisible: false,
         doves: [newDove, ...state.doves]
       };
 
