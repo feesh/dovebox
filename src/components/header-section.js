@@ -16,7 +16,7 @@ class Header extends React.Component {
       <header>
         <div className="content">
           <div className="title">
-            <h1><a href="" title="DoveBox">🐥📦</a></h1>
+            <h1><a href="" title="DoveBox">🐥📦 DoveBox</a></h1>
           </div>
           <div className="actions">
             <Search
