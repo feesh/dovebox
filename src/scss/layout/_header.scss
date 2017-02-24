@@ -48,13 +48,18 @@ header {
 
   .actions {
     display: flex;
+    flex-direction: column;
+
+    @include break-at($medium-screens) {
+      flex-direction: row;
+    }
   }
 
   .btn {
     text-align: center;
 
     &.add-panel {
-      margin-left: 1rem;
+      @include break-at($medium-screens) { margin-left: 1rem; }
     }
   }
 }

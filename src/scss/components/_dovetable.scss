@@ -7,6 +7,7 @@
 
   thead {
     td {
+      display: none;
       background: rgba($white, 0.15);
       margin: 0 0 1rem;
       padding: 1.5rem 1.5rem 0.5rem;
@@ -18,23 +19,85 @@
       &:first-child {
         text-align: center;
       }
+
+      @include break-at($medium-screens) {
+        display: block;
+      }
     }
   }
 
   tbody {
-    td {
-      padding: 0.5rem 1.5rem;
-
-      // The dove title / color
-      &:first-child {
-        font-size: 1.5rem;
-        text-align: center;
-        text-shadow: 1px 1px 3px rgba(33, 33, 33, 0.75);
+    tr {
+      &:nth-child(even) {
+        background: rgba($white, 0.05);
       }
     }
 
-    tr:nth-child(even) {
-      background: rgba($white, 0.05);
+    td {
+      display: block;
+      padding: 0.5rem 1.5rem;
+
+      &:before {
+        @include text--uppercase;
+        font-size: 0.7rem;
+        color: rgba($white, 0.5);
+      }
+
+      @include break-at($medium-screens) { display: table-cell; }
+
+      // The dove title / color
+      &:first-child {
+        display: block;
+        font-size: 1.5rem;
+        text-align: center;
+        text-shadow: 1px 1px 3px rgba(33, 33, 33, 0.75);
+
+        @include break-at($medium-screens) { display: table-cell; }
+
+        &:before {
+          font-size: inherit;
+          color: inherit;
+          content: 'Dove ';
+
+          @include break-at($medium-screens) { content: ''; }
+        }
+      }
+
+      // Images
+      &:nth-child(2) {
+        &:before {
+          content: 'Images: ';
+
+          @include break-at($medium-screens) { content: ''; }
+        }
+      }
+
+      // Command
+      &:nth-child(3) {
+        &:before {
+          content: 'Command: ';
+
+          @include break-at($medium-screens) { content: ''; }
+        }
+      }
+
+      // Deorbit
+      &:nth-child(4) {
+        &:before {
+          content: 'Deorbit_dt: ';
+
+          @include break-at($medium-screens) { content: ''; }
+        }
+      }
+
+      // Delete action
+      &:last-child {
+        display: block;
+        margin-bottom: 2rem;
+        text-align: right;
+
+        @include break-at($medium-screens) { display: table-cell; }
+      }
     }
   }
 }
