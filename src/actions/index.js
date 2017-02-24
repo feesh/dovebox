@@ -31,9 +31,12 @@ export function deleteDove(id) {
 }
 
 // add a dove
-export function addDove() {
+export function addDove(id, color, command, active) {
   return {
     type: 'ADD_DOVE',
-    id
+    id,
+    color,
+    command,
+    active
   }
 }
