@@ -47,6 +47,7 @@ const doves = (state = {}, action) => {
       // Add new dove to list
       // Return list
       console.log('add a dove!');
+      console.log(action);
       return state;
 
     case 'TOGGLE_ADD_PANEL':
