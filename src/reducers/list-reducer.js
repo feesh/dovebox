@@ -48,7 +48,22 @@ const doves = (state = {}, action) => {
       // Return list
       console.log('add a dove!');
       console.log(action);
-      return state;
+
+      let deorbit_dt = new Date();
+
+      const newDove = {
+        id: action.id,
+        active: action.active,
+        color: action.color,
+        images_collected: 0,
+        last_command: action.command,
+        deorbit_dt: deorbit_dt.toISOString()
+      };
+
+      return {
+        ...state,
+        doves: [newDove, ...state.doves]
+      };
 
     case 'TOGGLE_ADD_PANEL':
       // Show or hide add new dove panel
