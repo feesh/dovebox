@@ -44,3 +44,15 @@ a {
     -o-filter:      grayscale(0%);
   }
 }
+
+// form elements
+input {
+  border: none;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+label {
+  @include text--uppercase;
+  font-weight: bold;
+}
