@@ -3,11 +3,14 @@
 .panel {
   background: rgba($black, 0.8);
   border-bottom: 1px solid rgba($white, 0.25);
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
 
   h2 {
     font-family: $stint;
     font-weight: normal;
     letter-spacing: 1px;
+    text-align: center;
   }
 
   .content {
