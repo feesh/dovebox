@@ -34,8 +34,8 @@ class DoveTable extends React.Component {
           <thead>
             <tr>
               <td>Dove</td>
-              <td>Last cmnd</td>
-              <td>Images collected</td>
+              <td>Imgs collected</td>
+              <td>Last command</td>
               <td>Deorbit</td>
               <td>Action</td>
             </tr>
