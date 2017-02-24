@@ -21,7 +21,7 @@ class DoveTable extends React.Component {
         <td style={{ backgroundColor: dove.color }}>{dove.id}</td>
         <td>{dove.images_collected}</td>
         <td>{dove.last_command}</td>
-        <td><span className="nowrap">{dove.deorbit_dt}</span></td>
+        <td className="-deorbit"><span className="nowrap">{dove.deorbit_dt}</span></td>
         <td><button className="btn" onClick={() => this.props.deleteDove(dove.id)}>Delete</button></td>
       </tr>
     );
@@ -34,7 +34,7 @@ class DoveTable extends React.Component {
           <thead>
             <tr>
               <td>Dove</td>
-              <td>Last command</td>
+              <td>Last cmnd</td>
               <td>Images collected</td>
               <td>Deorbit</td>
               <td>Action</td>

@@ -21,21 +21,26 @@
       }
 
       @include break-at($medium-screens) {
-        display: block;
+        display: table-cell;
       }
     }
   }
 
   tbody {
     tr {
-      &:nth-child(even) {
-        background: rgba($white, 0.05);
-      }
+      &:nth-child(even) { background: rgba($white, 0.05); }
     }
 
     td {
       display: block;
       padding: 0.5rem 1.5rem;
+
+      &.-deorbit {
+        overflow: hidden;
+
+        @include break-at($medium-screens) { max-width: 85px; }
+        @include break-at($large-screens) { max-width: 1000px; }
+      }
 
       &:before {
         @include text--uppercase;

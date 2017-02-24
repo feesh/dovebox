@@ -17,7 +17,6 @@
 .content {
   padding: 1.5rem;
 
-  @include break-at($medium-screens) {
-    padding: 1.5rem 3.5rem;
-  }
+  @include break-at($medium-screens) { padding: 1.5rem 2rem; }
+  @include break-at($large-screens) { padding: 1.5rem 3.5rem; }
 }
