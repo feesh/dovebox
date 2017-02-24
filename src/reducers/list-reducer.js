@@ -50,11 +50,26 @@ const doves = (state = {}, action) => {
       console.log(action);
 
       let deorbit_dt = new Date();
+      let color;
+
+      if (action.color) {
+        color = action.color;
+      } else {
+        // Random color generator:
+        // http://stackoverflow.com/questions/1484506/random-color-generator-in-javascript
+        const letters = '0123456789ABCDEF';
+        let randocolor = '#';
+        for (var i = 0; i < 6; i++ ) {
+          randocolor += letters[Math.floor(Math.random() * 16)];
+        }
+        color = randocolor;
+      }
+
 
       const newDove = {
         id: action.id,
         active: action.active,
-        color: action.color,
+        color: color,
         images_collected: 0,
         last_command: action.command,
         deorbit_dt: deorbit_dt.toISOString()
