@@ -38,7 +38,10 @@
 
         & > label { flex: 2 0 0; }
 
-        & > input { flex: 3 0 0; }
+        & > input {
+          flex: 3 0 0;
+          border-radius: $default-corner;
+        }
 
         // Color and active fields
         &.columns {

@@ -46,7 +46,7 @@ class AddPanel extends React.Component {
     return (
       <section className="panel -addpanel">
         <div className="content">
-          <h2>Bring a new dove into the flock:</h2>
+          <h2>Bring a new dove into the flock: 🐣</h2>
 
           {this.state.displayColorPicker &&
             <div>
@@ -72,7 +72,7 @@ class AddPanel extends React.Component {
                   style={{ backgroundColor: this.state.color }}
                   onClick={(event) => this.handleClick(event)}
                 >
-                  {this.state.color ? this.state.color : 'Color'}
+                  {this.state.color ? this.state.color : 'Color 🌈'}
                 </button>
               </div>
               <div>
@@ -80,7 +80,7 @@ class AddPanel extends React.Component {
                 <input type="checkbox" id="active" ref="active" />
               </div>
             </div>
-            <a href="" className="btn add-dove" onClick={(event) => this.handleSaveClick(event)}>Save dove</a>
+            <a href="" className="btn add-dove" onClick={(event) => this.handleSaveClick(event)}>Launch dove 🚀</a>
           </form>
         </div>
       </section>
