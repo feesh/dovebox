@@ -7,13 +7,14 @@ A patrol dashboard using React, Redux, and Sass. This demo monitors a flock of D
 
 ### 👉 Get started
 Testing this out locally? Start here to get set up:
+
 1. Download or clone the [server repo](https://github.com/spacedarcy/MCUITest).
-3. Download or clone this repo.
-4. Install dependencies. Run `npm install`.
-5. Start the API server with `npm start`.
-6. Start the DoveBox dashboard, run `npm start`.
-7. Open your browser to [http://localhost:3333/](http://localhost:3333/).
-8. To build for distribution, run `npm build`. Files will be packaged to the `/dist` folder.
+1. Download or clone this repo.
+1. Install dependencies. Run `npm install`.
+1. Start the API server with `npm start`.
+1. Start the DoveBox dashboard, run `npm start`.
+1. Open your browser to [http://localhost:3333/](http://localhost:3333/).
+1. To build for distribution, run `npm build`. Files will be packaged to the `/dist` folder.
 
 ### 🌟 Features
 - Search for a specific dove
