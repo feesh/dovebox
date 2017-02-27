@@ -69,8 +69,6 @@ const doves = (state = {}, action) => {
         sortDirection = 1;
       }
 
-      console.log(sortDirection);
-
       // Set up new list with doves in a different order
       switch (action.sortby) {
         case 'id':
