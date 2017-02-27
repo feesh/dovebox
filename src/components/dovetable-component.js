@@ -1,6 +1,13 @@
 import React from 'react';
 
 class DoveTable extends React.Component {
+
+  // Toggle sort clicks
+  handleSortClick(event, sortby) {
+    event.preventDefault();
+    this.props.sortList(sortby);
+  }
+
   renderDoveTable() {
     const doves = this.props.doveList;
     const dovelist = doves.map((dove, i) => this.renderDove(i, dove));
@@ -33,10 +40,18 @@ class DoveTable extends React.Component {
         <table className="dovetable">
           <thead>
             <tr>
-              <td>Dove</td>
-              <td>Imgs collected</td>
-              <td>Last command</td>
-              <td>Deorbit</td>
+              <td>
+                <a href="" onClick={(event, id) => this.handleSortClick(event, 'id')}>Dove</a>&nbsp;
+                <a href="" onClick={(event, id) => this.handleSortClick(event, 'rainbow')}>🌈</a></td>
+              <td>
+                <a href="" onClick={(event, id) => this.handleSortClick(event, 'imgs')}>Imgs collected</a>
+              </td>
+              <td>
+                <a href="" onClick={(event, id) => this.handleSortClick(event, 'cmnd')}>Last command</a>
+              </td>
+              <td>
+                <a href="" onClick={(event, id) => this.handleSortClick(event, 'date')}>Deorbit</a>
+              </td>
               <td>Action</td>
             </tr>
           </thead>
