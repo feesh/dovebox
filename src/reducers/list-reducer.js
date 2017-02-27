@@ -53,20 +53,23 @@ const doves = (state = {}, action) => {
       let sortDirection = state.sortDirection;
       let lastSort;
 
-      console.log(state);
-
       // Set lastSort for next round
       if (!state.lastSort) {
+        // If state.lastSort is unset, set with new sort
         lastSort = action.sortby;
       } else {
+        // Else set to previous sort
         lastSort = state.sort;
       }
 
       // If the same sort is selected twice, reverse the sort
-      if (action.sortby == state.lastSort) {
+      if (action.sortby == lastSort) {
         sortDirection = sortDirection * -1;
-        console.log(sortDirection);
+      } else {
+        sortDirection = 1;
       }
+
+      console.log(sortDirection);
 
       // Set up new list with doves in a different order
       switch (action.sortby) {
