@@ -22,6 +22,11 @@
       @include break-at($medium-screens) {
         display: table-cell;
       }
+
+      a {
+        color: $white;
+        cursor: pointer;
+      }
     }
   }
 
