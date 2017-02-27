@@ -8,6 +8,10 @@ const doves = (state = {}, action) => {
         doves: action.doves,
         filter: '',
         filteredDoves: [],
+        sort: '',
+        lastSort: '',
+        sortDirection: 1,
+        sortedDoves: [],
         addPanelIsVisible: false
       }
 
@@ -21,17 +25,17 @@ const doves = (state = {}, action) => {
         //   action.filter.toLowerCase()) !== -1;
 
         for (const key of Object.keys(dove)) {
-            const val = dove[key];
-            if (typeof val === 'string') {
-              if (val.toLowerCase().search(action.filter.toLowerCase()) !== -1) {
-                return true;
-              };
-            } else if (typeof val === 'number')  {
-              const num = val.toString().toLowerCase();
-              if (num.search(action.filter.toLowerCase()) !== -1) {
-                return true;
-              };
-            }
+          const val = dove[key];
+          if (typeof val === 'string') {
+            if (val.toLowerCase().search(action.filter.toLowerCase()) !== -1) {
+              return true;
+            };
+          } else if (typeof val === 'number')  {
+            const num = val.toString().toLowerCase();
+            if (num.search(action.filter.toLowerCase()) !== -1) {
+              return true;
+            };
+          }
         }
       });
 
@@ -40,6 +44,81 @@ const doves = (state = {}, action) => {
         ...state,
         filter: action.filter,
         filteredDoves: filteredDoves
+      }
+
+    // Sort list of doves by a criteria:
+    case 'SORT_LIST':
+      // Initial list & state
+      let sortedDoves = state.doves;
+      let sortDirection = state.sortDirection;
+      let lastSort;
+
+      console.log(state);
+
+      // Set lastSort for next round
+      if (!state.lastSort) {
+        lastSort = action.sortby;
+      } else {
+        lastSort = state.sort;
+      }
+
+      // If the same sort is selected twice, reverse the sort
+      if (action.sortby == state.lastSort) {
+        sortDirection = sortDirection * -1;
+        console.log(sortDirection);
+      }
+
+      // Set up new list with doves in a different order
+      switch (action.sortby) {
+        case 'id':
+          sortedDoves.sort(function(a,b) {
+            if (a.id < b.id) { return -1 * sortDirection; }
+            if (a.id > b.id) { return 1 * sortDirection; }
+            return 0;
+          });
+          break;
+
+        case 'rainbow':
+          sortedDoves.sort(function(a,b) {
+            if (a.color < b.color) { return -1 * sortDirection; }
+            if (a.color > b.color) { return 1 * sortDirection; }
+            return 0;
+          });
+          break;
+
+        case 'imgs':
+          sortedDoves.sort(function(a,b) {
+            return ((a.images_collected - b.images_collected) * sortDirection);
+          });
+          break;
+
+        case 'cmnd':
+          sortedDoves.sort(function(a,b) {
+            if (a.last_command.toLowerCase() < b.last_command.toLowerCase()) { return -1 * sortDirection; }
+            if (a.last_command.toLowerCase() > b.last_command.toLowerCase()) { return 1 * sortDirection; }
+            return 0;
+          });
+          break;
+
+        case 'date':
+          sortedDoves.sort(function(a,b) {
+            if (a.deorbit_dt < b.deorbit_dt) { return -1 * sortDirection; }
+            if (a.deorbit_dt > b.deorbit_dt) { return 1 * sortDirection; }
+            return 0;
+          });
+          break;
+
+        default:
+          sortedDoves = state.doves
+      }
+
+      // Return sorted doves
+      return {
+        ...state,
+        sort: action.sortby,
+        sortDirection: sortDirection,
+        lastSort: lastSort,
+        sortedDoves: sortedDoves
       }
 
     // Add new dove to list
@@ -74,6 +153,8 @@ const doves = (state = {}, action) => {
       // Return list
       return {
         ...state,
+        sort: '',
+        filter: '',
         addPanelIsVisible: false,
         doves: [newDove, ...state.doves]
       };
