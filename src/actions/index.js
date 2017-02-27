@@ -15,6 +15,14 @@ export const filterList = (filter) => {
   }
 }
 
+// Sort list
+export const sortList = (sortby) => {
+  return {
+    type: 'SORT_LIST',
+    sortby
+  }
+}
+
 // toggle panel
 export function toggleAddPanel() {
   return {
