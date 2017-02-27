@@ -181,6 +181,9 @@ const doves = {
   ],
   filter: '',
   filteredDoves: [],
+  sort: '',
+  lastSort: '',
+  sortedDoves: [],
   addPanelIsVisible: false
 }
 
