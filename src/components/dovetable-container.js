@@ -24,6 +24,14 @@ class DoveTableContainer extends React.Component {
           {...this.props}
         />
       );
+      // or if sort is active
+    } else if (this.props.doves.sort) {
+      return (
+        <DoveTable
+          doveList={this.props.doves.sortedDoves}
+          {...this.props}
+        />
+      );
     } else { // Otherwise show full dove list
       return (
         <DoveTable
