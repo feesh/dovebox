@@ -17,7 +17,7 @@ const doves = (state = {}, action) => {
 
     case 'FILTER_LIST':
       // Initialize list with flock of doves
-      var filteredDoves = state.doves;
+      let filteredDoves = state.doves;
 
       // Set up new list with doves that match
       filteredDoves = filteredDoves.filter(function(dove) {
@@ -135,7 +135,7 @@ const doves = (state = {}, action) => {
         // http://stackoverflow.com/questions/1484506/random-color-generator-in-javascript
         const letters = '0123456789ABCDEF';
         let randocolor = '#';
-        for (var i = 0; i < 6; i++ ) {
+        for (let i = 0; i < 6; i++ ) {
           randocolor += letters[Math.floor(Math.random() * 16)];
         }
         color = randocolor;
