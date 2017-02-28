@@ -15,6 +15,13 @@ export const filterList = (filter) => {
   }
 }
 
+// Clear filter
+export const clearFilter = () => {
+  return {
+    type: 'CLEAR_FILTER'
+  }
+}
+
 // Sort list
 export const sortList = (sortby) => {
   return {

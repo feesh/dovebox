@@ -46,12 +46,26 @@ const doves = (state = {}, action) => {
         filteredDoves: filteredDoves
       }
 
+    // Clear filter
+    case 'CLEAR_FILTER':
+      return {
+        ...state,
+        filter: '',
+        filteredDoves: []
+      }
+
     // Sort list of doves by a criteria:
     case 'SORT_LIST':
       // Initial list & state
-      let sortedDoves = state.doves;
+      let sortedDoves;
       let sortDirection = state.sortDirection;
       let lastSort;
+
+      if (state.filter) {
+        sortedDoves = state.filteredDoves;
+      } else {
+        sortedDoves = state.doves;
+      }
 
       // Set lastSort for next round
       if (!state.lastSort) {
